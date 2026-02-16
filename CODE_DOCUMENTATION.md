@@ -6,17 +6,50 @@ This repository contains two games, **Proximity** and **Tic-Tac-Toe**, both feat
 
 ```
 Q-learning games/
-├── proximity/
-│   ├── proximity_main.py       # Main entry point and AI logic for Proximity
-│   ├── proximity_gui.py        # GUI implementation using Tkinter
-│   ├── proximity_train.py      # Training script for the AI
-│   └── proximity_brain.pkl     # Saved Q-table (AI memory)
 ├── tic_tac_toe/
 │   ├── tictactoe_main.py       # Main entry point and AI logic for Tic-Tac-Toe
 │   ├── tictactoe_gui.py        # GUI implementation using Tkinter
 │   ├── tictactoe_train.py      # Training script for the AI
 │   └── tictactoe_brain.pkl     # Saved Q-table (AI memory)
+├── proximity/
+│   ├── proximity_main.py       # Main entry point and AI logic for Proximity
+│   ├── proximity_gui.py        # GUI implementation using Tkinter
+│   ├── proximity_train.py      # Training script for the AI
+│   └── proximity_brain.pkl     # Saved Q-table (AI memory)
 ```
+
+---
+
+## Tic-Tac-Toe
+
+### 1. Main Entry Point (`tictactoe_main.py`)
+This file contains the core AI logic and serves as the entry point to run the game.
+
+- **`SmartBot` Class**:
+    - **`__init__`**: Initializes the bot and loads the Q-table.
+    - **`choose_action`**: Returns a move and a boolean indicating if it was a random move (for exploration).
+    - **`learn` / `update_q`**: Updates Q-values based on game states and rewards.
+    - **`get_state`**: detailed string representation of the board for Q-table lookups.
+
+- **Execution**:
+    - If run directly (`python "tic_tac_toe/tictactoe_main.py"`), it initializes the `TicTacToeApp` from `tictactoe_gui.py`.
+
+### 2. GUI (`tictactoe_gui.py`)
+Handles the graphical user interface using `tkinter`.
+
+- **`TicTacToeApp` Class**:
+    - Sets up the 3x3 grid.
+    - **`on_click`**: Handling human moves.
+    - **`run_ai_turn`**: Triggers the AI to move.
+    - **`check_game_over`**: Checks for win conditions or draws and displays results.
+
+### 3. Training (`tictactoe_train.py`)
+A high-speed training script using "Self-Play".
+
+- **`train(iterations)`**:
+    - Simulates thousands of games where the AI plays against itself.
+    - Both "players" share the same Q-table (`SmartBot` instance), effectively learning from both winning and losing perspectives simultaneously.
+    - Updates q-values immediately after moves and at terminal states (Win/Loss/Draw).
 
 ---
 
@@ -56,35 +89,3 @@ A headless script to train the AI by playing against itself or a random agent.
 
 ---
 
-## Tic-Tac-Toe
-
-### 1. Main Entry Point (`tictactoe_main.py`)
-This file contains the core AI logic and serves as the entry point to run the game.
-
-- **`SmartBot` Class**:
-    - **`__init__`**: Initializes the bot and loads the Q-table.
-    - **`choose_action`**: Returns a move and a boolean indicating if it was a random move (for exploration).
-    - **`learn` / `update_q`**: Updates Q-values based on game states and rewards.
-    - **`get_state`**: detailed string representation of the board for Q-table lookups.
-
-- **Execution**:
-    - If run directly (`python "tic_tac_toe/tictactoe_main.py"`), it initializes the `TicTacToeApp` from `tictactoe_gui.py`.
-
-### 2. GUI (`tictactoe_gui.py`)
-Handles the graphical user interface using `tkinter`.
-
-- **`TicTacToeApp` Class**:
-    - Sets up the 3x3 grid.
-    - **`on_click`**: Handling human moves.
-    - **`run_ai_turn`**: Triggers the AI to move.
-    - **`check_game_over`**: Checks for win conditions or draws and displays results.
-
-### 3. Training (`tictactoe_train.py`)
-A high-speed training script using "Self-Play".
-
-- **`train(iterations)`**:
-    - Simulates thousands of games where the AI plays against itself.
-    - Both "players" share the same Q-table (`SmartBot` instance), effectively learning from both winning and losing perspectives simultaneously.
-    - Updates q-values immediately after moves and at terminal states (Win/Loss/Draw).
-
----

@@ -1,6 +1,6 @@
 # Q-Learning Games
 
-This repository contains two classic games, **Proximity** and **Tic-Tac-Toe**, each featuring an AI opponent trained using Q-Learning (Reinforcement Learning).
+This repository contains two classic games: **Tic-Tac-Toe** and **Proximity**, each featuring an AI opponent trained using Q-Learning (Reinforcement Learning).
 
 ## Games
 
