@@ -7,6 +7,10 @@ This repository contains two classic games: **Tic-Tac-Toe** and **Proximity**, e
 ### 1. Proximity
 A strategic board game where you claim tiles by placing higher numbers adjacent to opponent tiles. The goal is to own the most tiles by the end of the game.
 
+[![Proximity Game UI](twisted_proximity_ui.png)](https://cdn.jsdelivr.net/gh/ckopsahilis/Q-learning-games@main/twisted_proximity_gameplay.mp4)
+
+> **Click the image above to watch the gameplay video**
+
 - **Main Script**: `proximity/proximity_main.py`
 - **Training Script**: `proximity/proximity_train.py`
 
